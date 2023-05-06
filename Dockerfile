@@ -1,7 +1,7 @@
 # Start from official Ubuntu image
 FROM ubuntu:22.04
 
-ARG QUARTO_VERSION=1.4.37
+ARG QUARTO_VERSION=1.3.340
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install Ubuntu dependencies
@@ -10,7 +10,10 @@ RUN apt-get install -y \
     curl \
     python3 \
     r-base \
-    fonts-open-sans
+    fonts-open-sans \
+    nodejs \
+    npm
+RUN npm install -g puppeteer
 
 # Download quarto
 RUN curl -o quarto-${QUARTO_VERSION}-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.deb
