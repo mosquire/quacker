@@ -5,7 +5,7 @@ on:
       - 'main'
   release:
     types:
-      - created
+      - published
 
 jobs:
   build_and_publish:
